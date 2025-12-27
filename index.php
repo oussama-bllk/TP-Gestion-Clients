@@ -1,17 +1,16 @@
 <?php
 session_start();
-// Si l'utilisateur n'est pas connecté, on le renvoie vers login.php
+
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header("Location: login.php");
     exit;
 }
-// 4. Connexion à une base MySQL [cite: 57]
+
 $host = "localhost"; $user = "root"; $pass = ""; $dbname = "gestion_client_db";
 $conn = new mysqli($host, $user, $pass, $dbname);
 
 if ($conn->connect_error) die("Erreur connexion: " . $conn->connect_error);
 
-// 3. Traitement PHP: récupération et insertion [cite: 56, 57]
 if (isset($_POST['ajouter'])) {
     $nom = $conn->real_escape_string($_POST['nom']);
     $prenom = $conn->real_escape_string($_POST['prenom']);
@@ -69,7 +68,7 @@ if (isset($_POST['ajouter'])) {
 
     <div class="d-flex justify-content-between align-items-center mt-4 mb-2">
         <h4>Liste des Clients</h4>
-        <a href="export.php" class="btn btn-success">📄 Exporter en CSV</a>
+        <a href="export.php" class="btn btn-success">Exporter en CSV</a>
     </div>
     <table class="table table-bordered table-striped">
         <thead>
@@ -97,7 +96,7 @@ if (isset($_POST['ajouter'])) {
         let nom = document.getElementById("nom").value;
         let prenom = document.getElementById("prenom").value;
         if (nom == "" || prenom == "") {
-            alert("Veuillez remplir le nom et le prénom !"); // Alerte si champ manquant
+            alert("Veuillez remplir le nom et le prénom !"); 
             return false;
         }
         return true;
