@@ -1,14 +1,13 @@
 <?php
 session_start();
 
-// Identifiants (en dur pour faire simple)
 $admin_user = "admin";
 $admin_pass = "1234"; 
 
 if (isset($_POST['connect'])) {
     if ($_POST['user'] == $admin_user && $_POST['password'] == $admin_pass) {
         $_SESSION['logged_in'] = true;
-        header("Location: index.php"); // Redirection vers la gestion
+        header("Location: index.php"); 
         exit;
     } else {
         $error = "Identifiants incorrects !";
