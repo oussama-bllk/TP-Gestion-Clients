@@ -30,7 +30,7 @@ if (isset($_POST['connect'])) {
         }
         .card {
             border: 1px solid #444; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.5); 
+            box-shadow:  0 0 20px rgba(3, 19, 251, 0.5); 
         }
     </style>
 </head>
